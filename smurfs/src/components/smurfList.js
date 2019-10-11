@@ -12,7 +12,7 @@ function SmurfList(props) {
   }
   return (
     <div>
-      <button className="button" onClick={getSmurf}>FETCH POSTS</button>
+      <button className="button" onClick={getSmurf}>FETCH SMURFS</button>
 
       <div>
         {props.smurf.data.map(post => (
