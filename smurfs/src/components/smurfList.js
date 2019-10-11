@@ -11,7 +11,7 @@ function SmurfList(props) {
     props.fetchSmurf();
   }
   return (
-    <div>
+    <TestDiv>
       <button className="button" onClick={getSmurf}>FETCH SMURFS</button>
 
       <div>
@@ -24,7 +24,7 @@ function SmurfList(props) {
           </div>
         ))}
       </div>
-    </div>
+    </TestDiv>
   );
 }
 
@@ -41,24 +41,7 @@ const TestDiv = styled.div`
 
   &:hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-  }
-  button {
-    background-color: white;
-    color: black;
-    border: 2px solid #4caf50;
-    width: 10rem;
-    height: 2rem;
 
-    &:hover {
-      background-color: #4caf50;
-      color: white;
-    }
-  }
-
-  img {
-    width: 100%;
-    height: 50vh;
-  }
 `;
 
 export default connect(
