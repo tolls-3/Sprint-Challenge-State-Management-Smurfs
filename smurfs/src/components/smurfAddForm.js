@@ -64,7 +64,7 @@ function AddSmurf(props) {
           <br />
           <input className="label"
             name="height"
-            placeholder="Smurf Height"
+            placeholder="Height"
             value={props.height}
             onChange={inputChange}
           />
