@@ -6,6 +6,27 @@ const initialSmurfState = {
   isFetching: false
 };
 
+
+const initialFormState = {
+    Name: '',
+    Age: '',
+    Height:'',
+  };
+
+export function formReducer(state = initialFormState, action) {
+    switch (action.type) {
+      case types.ON_INPUT_CHANGE:
+        return {
+          ...state,
+          [action.payload.name]: action.payload.value,
+        };
+      default:
+        return state;
+    }
+  }
+  
+
+
 export function smurfReducer(state = initialSmurfState, action) {
   switch (action.type) {
     case types.FETCH_SMURF_START:
@@ -25,11 +46,20 @@ export function smurfReducer(state = initialSmurfState, action) {
           error: action.payload,
       };
     case types.ADD_SMURF_START:
-      return {};
+      return {
+          ...state, 
+          data: [...state.data, action.payload]
+      };
     case types.ADD_SMURF_SUCCESS:
-      return {};
+      return {
+          ...state,
+          data:action.payload,
+      };
     case types.ADD_SMURF_FAILURE:
-      return {};
+      return {
+          ...state,
+          error:action.payload
+      };
     default:
       return state;
   }

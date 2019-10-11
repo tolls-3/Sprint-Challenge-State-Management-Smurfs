@@ -10,7 +10,8 @@ import thunk from "redux-thunk";
 import * as reducers from "./state/reducers";
 
 const bigStore = combineReducers({
-  smurf: reducers.smurfReducer
+  smurf: reducers.smurfReducer,
+  form:reducers.formReducer
 });
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(

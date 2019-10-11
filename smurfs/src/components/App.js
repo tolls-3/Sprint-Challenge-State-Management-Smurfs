@@ -3,7 +3,8 @@ import "./App.css";
 
 import { connect } from "react-redux";
 import * as actionCreators from "../state/actionCreators";
-import SmurfList from './smurfList'
+import SmurfList from './smurfList';
+import AddSmurf from './smurfAddForm'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <div>Start inside of your `src/index.js` file!</div>
       <div>Have fun!</div>
       <SmurfList/>
+      <AddSmurf/>
     </div>
   );
 }
