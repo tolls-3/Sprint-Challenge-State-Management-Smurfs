@@ -3,15 +3,25 @@ import * as types from "./actionTypes";
 
 const smurfApi = "http://localhost:3333/smurfs";
 
-export function inputChange(target) {
-    return {
-      type: types.ON_INPUT_CHANGE,
-      payload: {
-        name: target.name,
-        value: target.value,
-      },
-    };
-  }
+// export function inputChange(target) {
+//   return {
+//     type: types.ON_INPUT_CHANGE,
+//     payload: {
+//       name: target.name,
+//       value: target.value
+//     }
+//   };
+// }
+
+export function removeSmurf(el) {
+  return {
+    type: types.DELETE_SMURF_SUCCESS,
+    payload: el
+  };
+}
+
+// axios calls
+/////////////////////////////////////////////////
 
 export function fetchSmurf() {
   return function(dispatch) {
@@ -48,5 +58,21 @@ export function addSmurf(char) {
           payload: err
         })
       );
+  };
+}
+
+export function deleteSmurf(id) {
+  return function(dispatch) {
+    axios
+      .delete( `http://localhost:3333/smurfs/${id}`)
+      .then(({data}) =>
+        dispatch(removeSmurf(data))
+      )
+      // .catch(err =>
+      //   dispatch({
+      //     type: types.FETCH_SMURF_FAILURE,
+      //     payload: err
+      //   })
+      // );
   };
 }

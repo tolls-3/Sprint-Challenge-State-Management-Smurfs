@@ -1,26 +1,39 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchSmurf } from "../state/actionCreators";
+import { fetchSmurf, deleteSmurf } from "../state/actionCreators";
 import styled from "styled-components";
 
 function SmurfList(props) {
   console.log(props);
 
-  function getSmurf(e) {
-    e.preventDefault();
+  function getSmurf() {
     props.fetchSmurf();
   }
+
+  function delSmurf(e, id) {
+    //debugger;
+    e.preventDefault();
+    //console.log(delSmurf(e,id))
+    props.deleteSmurf(id);
+  }
+
   return (
     <TestDiv>
-      <button className="button" onClick={getSmurf}>FETCH SMURFS</button>
+      <button className="button" onClick={getSmurf}>
+        FETCH SMURFS
+      </button>
 
       <div>
         {props.smurf.data.map(char => (
           <div key={char.id}>
-            <span>
-              {" "}
-              NAME: {char.name} AGE: {char.age} HEIGHT: {char.height}
-            </span>
+            NAME: {char.name} AGE: {char.age} HEIGHT: {char.height}
+            <button
+              onClick={function(e) {
+                return delSmurf(e, char.id);
+              }}
+            >
+              X
+            </button>
           </div>
         ))}
       </div>
@@ -41,10 +54,10 @@ const TestDiv = styled.div`
 
   &:hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-
+  }
 `;
 
 export default connect(
   state => state,
-  { fetchSmurf }
+  { fetchSmurf, deleteSmurf }
 )(SmurfList);

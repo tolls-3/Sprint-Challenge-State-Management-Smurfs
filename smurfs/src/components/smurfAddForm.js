@@ -35,37 +35,37 @@ function AddSmurf(props) {
 
       <form onSubmit={submitForm}>
         <label>
-          {" "}
           Smurf Name:
           <br />
-          <input className="label"
+          <input
+            className="label"
             name="name"
             placeholder="Name"
-            value={props.name}
+            value={user.name}
             onChange={inputChange}
           />
         </label>
         <br />
         <label>
-          {" "}
           Smurf Age:
           <br />
-          <input className="label"
+          <input
+            className="label"
             name="age"
             placeholder="Age"
-            value={props.Age}
+            value={user.age}
             onChange={inputChange}
           />
         </label>
         <br />
         <label>
-          {" "}
           Smurf Height:
           <br />
-          <input className="label"
+          <input
+            className="label"
             name="height"
             placeholder="Height"
-            value={props.height}
+            value={user.height}
             onChange={inputChange}
           />
         </label>

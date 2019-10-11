@@ -60,6 +60,17 @@ export function smurfReducer(state = initialSmurfState, action) {
           ...state,
           error:action.payload
       };
+
+    case types.DELETE_SMURF_SUCCESS:
+      return{
+        ...state,
+        data:action.payload
+      }
+      case types.DELETE_SMURF_FAILURE:
+        return{
+          ...state,
+          error:action.payload
+        }
     default:
       return state;
   }
