@@ -4,16 +4,20 @@ import { addSmurf } from "../state/actionCreators";
 
 function AddSmurf(props) {
   //console.log(props);
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState({
+    name: "",
+    age: "",
+    height: ""
+  });
 
   function inputChange(e) {
     return setUser({
       ...user,
       [e.target.name]: e.target.value
     });
-  };
+  }
 
-  function submitForm(e){
+  function submitForm(e) {
     e.preventDefault();
     props.addSmurf(user);
     return setUser({
@@ -21,7 +25,7 @@ function AddSmurf(props) {
       age: "",
       height: ""
     });
-  };
+  }
 
   return (
     <div>
@@ -30,7 +34,9 @@ function AddSmurf(props) {
       </div>
 
       <form onSubmit={submitForm}>
-        <label> Smurf Name
+        <label>
+          {" "}
+          Smurf Name:
           <input
             name="name"
             placeholder="Name"
@@ -38,7 +44,9 @@ function AddSmurf(props) {
             onChange={inputChange}
           />
         </label>
-        <label> Smurf Age
+        <label>
+          {" "}
+          Smurf Age:
           <input
             name="age"
             placeholder="Age"
@@ -46,7 +54,9 @@ function AddSmurf(props) {
             onChange={inputChange}
           />
         </label>
-        <label> Smurf Height
+        <label>
+          {" "}
+          Smurf Height:
           <input
             name="height"
             placeholder="Smurf Height"
@@ -54,7 +64,9 @@ function AddSmurf(props) {
             onChange={inputChange}
           />
         </label>
-        <button type="submit">Submit</button>
+        <div>
+          <button className="button" type="submit">Submit</button>
+        </div>
       </form>
     </div>
   );
