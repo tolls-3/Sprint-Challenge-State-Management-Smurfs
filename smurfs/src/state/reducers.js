@@ -9,11 +9,21 @@ const initialSmurfState = {
 export function smurfReducer(state = initialSmurfState, action) {
   switch (action.type) {
     case types.FETCH_SMURF_START:
-      return {};
+      return {
+          ...state,
+          isFetching:true, 
+      };
     case types.FETCH_SMURF_SUCCESS:
-      return {};
+      return {
+          ...state, 
+          isFetching:false,
+          data: action.payload
+      };
     case types.FETCH_SMURF_FAILURE:
-      return {};
+      return {
+          ...state, 
+          error: action.payload,
+      };
     case types.ADD_SMURF_START:
       return {};
     case types.ADD_SMURF_SUCCESS:
