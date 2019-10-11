@@ -15,11 +15,11 @@ function SmurfList(props) {
       <button className="button" onClick={getSmurf}>FETCH SMURFS</button>
 
       <div>
-        {props.smurf.data.map(post => (
-          <div key={post.id}>
+        {props.smurf.data.map(char => (
+          <div key={char.id}>
             <span>
               {" "}
-              NAME: {post.name} AGE: {post.age} HEIGHT: {post.height}
+              NAME: {char.name} AGE: {char.age} HEIGHT: {char.height}
             </span>
           </div>
         ))}
